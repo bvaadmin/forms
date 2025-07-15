@@ -402,30 +402,7 @@
                 </div>
             </div>
             
-            <!-- Placement Scheduling Section (only for immediate placement) -->
-            <div class="form-section" id="placementSchedulingSection" style="display: none;">
-                <h2>Placement Scheduling</h2>
-                <div class="two-column">
-                    <div class="form-group">
-                        <label for="requested_placement_date">Requested Date for Placement</label>
-                        <input type="date" id="requested_placement_date" name="requested_placement_date">
-                        <small style="color: #666; font-style: italic;">Leave blank if flexible on timing</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="preferred_placement_time">Preferred Time of Day</label>
-                        <select id="preferred_placement_time" name="preferred_placement_time">
-                            <option value="">Select preferred time...</option>
-                            <option value="Morning">Morning</option>
-                            <option value="Afternoon">Afternoon</option>
-                            <option value="Evening">Evening</option>
-                            <option value="No preference">No preference</option>
-                        </select>
-                    </div>
-                </div>
-                <div style="background-color: #e8f0ff; padding: 12px; border-radius: 4px; margin-top: 10px; font-size: 0.9em; color: #555;">
-                    <strong>Note:</strong> The Memorial Garden Committee will coordinate with you to confirm the placement date and time based on availability and weather conditions.
-                </div>
-            </div>
+
             
             <!-- Prepayment Information Section (only for prepayment) -->
             <div class="form-section" id="prepaymentInfoSection" style="display: none;">
@@ -701,9 +678,6 @@
                 const deceasedNameInput = document.getElementById('deceased_name');
                 const firstNameInput = document.getElementById('first_name');
                 const lastNameInput = document.getElementById('last_name');
-                const placementSchedulingSection = document.getElementById('placementSchedulingSection');
-                const placementDateInput = document.getElementById('requested_placement_date');
-                const placementTimeInput = document.getElementById('preferred_placement_time');
                 const prepaymentInfoSection = document.getElementById('prepaymentInfoSection');
                 const prepaymentNamesInput = document.getElementById('prepayment_names');
                 const servicePlanningSection = document.getElementById('servicePlanningSection');
@@ -713,7 +687,6 @@
                     deathDateGroup.style.display = 'none';
                     personalHistorySection.style.display = 'none';
                     deceasedNameGroup.style.display = 'none';
-                    placementSchedulingSection.style.display = 'none';
                     servicePlanningSection.style.display = 'none';
                     
                     // Show prepayment-specific fields
@@ -727,8 +700,6 @@
                     deceasedNameInput.value = '';
                     firstNameInput.removeAttribute('required');
                     lastNameInput.removeAttribute('required');
-                    placementDateInput.value = '';
-                    placementTimeInput.value = '';
                     
                     // Clear service planning fields
                     document.getElementById('requested_service_date').value = '';
@@ -761,7 +732,6 @@
                     deathDateGroup.style.display = 'block';
                     personalHistorySection.style.display = 'block';
                     deceasedNameGroup.style.display = 'block';
-                    placementSchedulingSection.style.display = 'block';
                     servicePlanningSection.style.display = 'block';
                     
                     // Hide prepayment-specific fields
@@ -780,7 +750,6 @@
         // Set minimum dates to today
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('requested_service_date').min = today;
-        document.getElementById('requested_placement_date').min = today;
         
         // Auto-populate deceased name when first/last name changes (only for immediate placement)
         function updateDeceasedName() {
