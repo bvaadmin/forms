@@ -122,6 +122,22 @@
             cursor: pointer;
         }
         
+        .radio-group label[for="payment_mail"],
+        .radio-group label[for="payment_deliver"] {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+            transition: background-color 0.3s;
+        }
+        
+        .radio-group label[for="payment_mail"]:hover,
+        .radio-group label[for="payment_deliver"]:hover {
+            background-color: #e9ecef;
+        }
+        
         .btn-primary {
             background-color: #2c5aa0;
             color: white;
@@ -171,6 +187,34 @@
             font-weight: 600;
         }
         
+        .fee-display {
+            background-color: #e8f0ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            text-align: center;
+            border: 2px solid #2c5aa0;
+        }
+        
+        .fee-display h3 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .fee-amount {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin: 10px 0;
+        }
+        
+        .fee-note {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+        
         .policy-note {
             background-color: #fff3cd;
             border: 1px solid #ffeaa7;
@@ -207,6 +251,19 @@
             background-color: #f8f9fa;
             border-radius: 5px;
             border-left: 4px solid #2c5aa0;
+            display: none;
+        }
+        
+        #feeDisplay {
+            display: none;
+        }
+        
+        .membership-notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
             display: none;
         }
         
@@ -257,6 +314,57 @@
             <input type="hidden" name="_next" value="data:text/html,<html><body style='font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f5f5f5;'><div style='max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'><h2 style='color: #2c5aa0; margin-bottom: 20px;'>Application Submitted Successfully!</h2><p style='margin-bottom: 20px; font-size: 16px;'>Thank you for submitting your Memorial Garden application.</p><p style='margin-bottom: 20px;'>Your application has been received and will be reviewed by the Bay View Association Board of Trustees.</p><p style='margin-bottom: 20px;'><strong>Next Steps:</strong></p><ul style='text-align: left; margin-bottom: 20px;'><li>You will receive a confirmation email shortly</li><li>The Board will review your application</li><li>You will be contacted within 2 business days</li><li>Payment processing will begin upon approval</li></ul><p style='color: #666; font-size: 14px;'>A National Historic Landmark - Founded in 1875<br>Bay View Association<br>1715 Encampment Avenue, Petoskey, MI 49770</p></div></body></html>">
             <input type="hidden" name="form_type" value="Memorial Garden Application">
             <input type="hidden" name="submission_date" id="submissionDate">
+            <input type="hidden" name="calculated_fee" id="calculatedFee">
+            
+            <!-- Bay View Membership - Moved to top for fee calculation -->
+            <div class="form-section">
+                <h2>Bay View Membership Information</h2>
+                <div class="form-group">
+                    <label>Are you or the deceased a Bay View member or relative of a member? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <input type="radio" id="member_yes" name="is_member" value="Yes" required>
+                        <label for="member_yes">Yes - Bay View member or relative</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="member_no" name="is_member" value="No" required>
+                        <label for="member_no">No - Not a Bay View member</label>
+                    </div>
+                </div>
+                <div id="memberDetails">
+                    <div class="form-group">
+                        <label for="member_name">Bay View Member Name</label>
+                        <input type="text" id="member_name" name="member_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="member_relationship">Relationship to member</label>
+                        <input type="text" id="member_relationship" name="member_relationship">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dynamic Fee Display -->
+            <div id="feeDisplay" class="fee-display">
+                <h3>Your Placement Fee</h3>
+                <div class="fee-amount" id="feeAmount">$0.00</div>
+                <div class="fee-note" id="feeNote"></div>
+                <div style="margin-top: 15px;">
+                    <p><strong>Payment Instructions:</strong></p>
+                    <p>Please make checks payable to "Bay View Association," with memo of "Memorial Garden."</p>
+                    
+                    <div style="margin-top: 15px;">
+                        <p><strong>Payment Delivery Options:</strong></p>
+                        <div class="radio-group" style="margin-top: 10px;">
+                            <input type="radio" id="payment_mail" name="payment_delivery" value="Mail" required>
+                            <label for="payment_mail"><strong>Mail to:</strong> Bay View Association, P.O. Box 583, Petoskey, MI 49770</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="payment_deliver" name="payment_delivery" value="Deliver in person" required>
+                            <label for="payment_deliver"><strong>Deliver in person to:</strong> Administration Office, Wade Hall<br>
+                            <span style="margin-left: 25px; font-size: 0.9em; color: #666;">1715 Encampment Avenue, Petoskey, MI 49770</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- Purpose Section -->
             <div class="form-section">
@@ -277,25 +385,11 @@
             <!-- Payment Information -->
             <div class="form-section">
                 <h2>Payment Information</h2>
-                <div class="fee-info">
-                    <table>
-                        <tr>
-                            <td>Placement Fee (Bay View Members and relatives):</td>
-                            <td>$400.00</td>
-                        </tr>
-                        <tr>
-                            <td>Placement Fee (Non-Bay View Members):</td>
-                            <td>$1,500.00</td>
-                        </tr>
-                    </table>
-                    <p style="margin-top: 10px;"><strong>Note:</strong> Please make checks payable to "Bay View Association," with memo of "Memorial Garden."</p>
-                    <p><strong>Mail to:</strong> Bay View Association, P.O. Box 583, Petoskey, MI 49770</p>
-                </div>
-                
                 <div class="payment-section">
                     <div class="form-group">
                         <label for="payment_amount">Amount Enclosed ($) <span class="required">*</span></label>
-                        <input type="number" id="payment_amount" name="payment_amount" step="0.01" min="0" required>
+                        <input type="number" id="payment_amount" name="payment_amount" step="0.01" min="0" required readonly>
+                        <small style="color: #666; font-style: italic;">Amount automatically calculated based on membership status</small>
                     </div>
                     <div class="form-group">
                         <label for="deceased_name">Name(s) of deceased <span class="required">*</span></label>
@@ -403,32 +497,6 @@
                 </div>
             </div>
             
-            <!-- Bay View Membership -->
-            <div class="form-section">
-                <h2>Bay View Membership Information</h2>
-                <div class="form-group">
-                    <label>Are you or the deceased a Bay View member or relative of a member? <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <input type="radio" id="member_yes" name="is_member" value="Yes" required>
-                        <label for="member_yes">Yes</label>
-                    </div>
-                    <div class="radio-group">
-                        <input type="radio" id="member_no" name="is_member" value="No" required>
-                        <label for="member_no">No</label>
-                    </div>
-                </div>
-                <div id="memberDetails">
-                    <div class="form-group">
-                        <label for="member_name">Bay View Member Name</label>
-                        <input type="text" id="member_name" name="member_name">
-                    </div>
-                    <div class="form-group">
-                        <label for="member_relationship">Relationship to member</label>
-                        <input type="text" id="member_relationship" name="member_relationship">
-                    </div>
-                </div>
-            </div>
-            
             <!-- Policies -->
             <div class="form-section">
                 <h2>Memorial Garden Policies</h2>
@@ -472,11 +540,39 @@
         // Set submission date
         document.getElementById('submissionDate').value = new Date().toISOString();
         
-        // Show/hide member details based on membership selection
+        // Fee structure
+        const fees = {
+            member: 400.00,
+            nonMember: 1500.00
+        };
+        
+        // Show/hide member details and update fee display based on membership selection
         document.querySelectorAll('input[name="is_member"]').forEach(radio => {
             radio.addEventListener('change', function() {
                 const memberDetails = document.getElementById('memberDetails');
+                const feeDisplay = document.getElementById('feeDisplay');
+                const feeAmount = document.getElementById('feeAmount');
+                const feeNote = document.getElementById('feeNote');
+                const paymentAmount = document.getElementById('payment_amount');
+                const calculatedFee = document.getElementById('calculatedFee');
+                
+                // Show/hide member details
                 memberDetails.style.display = this.value === 'Yes' ? 'block' : 'none';
+                
+                // Show fee display and update amounts
+                feeDisplay.style.display = 'block';
+                
+                if (this.value === 'Yes') {
+                    feeAmount.textContent = `$${fees.member.toFixed(2)}`;
+                    feeNote.textContent = 'Bay View Member/Relative Rate';
+                    paymentAmount.value = fees.member.toFixed(2);
+                    calculatedFee.value = fees.member.toFixed(2);
+                } else {
+                    feeAmount.textContent = `$${fees.nonMember.toFixed(2)}`;
+                    feeNote.textContent = 'Non-Member Rate';
+                    paymentAmount.value = fees.nonMember.toFixed(2);
+                    calculatedFee.value = fees.nonMember.toFixed(2);
+                }
             });
         });
         
@@ -506,6 +602,22 @@
         document.getElementById('memorialGardenForm').addEventListener('submit', function(e) {
             const submitButton = document.getElementById('submitButton');
             const loading = document.getElementById('loading');
+            
+            // Check if membership status is selected
+            const membershipSelected = document.querySelector('input[name="is_member"]:checked');
+            if (!membershipSelected) {
+                alert('Please select your Bay View membership status to calculate the correct fee.');
+                e.preventDefault();
+                return;
+            }
+            
+            // Check if payment delivery method is selected
+            const paymentDeliverySelected = document.querySelector('input[name="payment_delivery"]:checked');
+            if (!paymentDeliverySelected) {
+                alert('Please select how you will deliver your payment.');
+                e.preventDefault();
+                return;
+            }
             
             // Show loading state
             submitButton.disabled = true;
