@@ -84,6 +84,7 @@
             border-radius: 4px;
             font-size: 14px;
             transition: border-color 0.3s;
+            background-color: white;
         }
         
         input:focus,
@@ -120,22 +121,6 @@
             margin-right: 20px;
             font-weight: normal;
             cursor: pointer;
-        }
-        
-        .radio-group label[for="payment_mail"],
-        .radio-group label[for="payment_deliver"] {
-            display: block;
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            border: 1px solid #e9ecef;
-            transition: background-color 0.3s;
-        }
-        
-        .radio-group label[for="payment_mail"]:hover,
-        .radio-group label[for="payment_deliver"]:hover {
-            background-color: #e9ecef;
         }
         
         .btn-primary {
@@ -245,6 +230,22 @@
             margin: 15px 0;
         }
         
+        .payment-info-display {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 4px solid #2c5aa0;
+        }
+        
+        .payment-option {
+            background-color: #ffffff;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        
         #memberDetails {
             margin-top: 15px;
             padding: 15px;
@@ -265,6 +266,20 @@
             border-radius: 5px;
             margin: 15px 0;
             display: none;
+        }
+        
+        .service-planning-section {
+            background-color: #f0f8ff;
+            border-left: 4px solid #2c5aa0;
+        }
+        
+        .celebrant-info {
+            background-color: #e8f0ff;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #555;
         }
         
         .loading {
@@ -311,10 +326,13 @@
         <form action="https://formspree.io/f/mnnzqjkb" method="POST" id="memorialGardenForm">
             <!-- Hidden fields for form processing -->
             <input type="hidden" name="_subject" value="New Memorial Garden Application - Bay View Association">
-            <input type="hidden" name="_next" value="data:text/html,<html><head><title>Application Submitted - Bay View Memorial Garden</title><style>body{font-family:Arial,sans-serif;margin:0;padding:20px;background-color:#f5f5f5}.container{max-width:800px;margin:0 auto;background:white;padding:40px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}h1,h2{color:#2c5aa0;margin-bottom:20px}h1{text-align:center;border-bottom:2px solid #2c5aa0;padding-bottom:15px}h2{font-size:1.3em;margin-top:30px}.success-header{text-align:center;background-color:#d4edda;padding:20px;border-radius:5px;margin-bottom:30px;border:1px solid #c3e6cb}.success-header h2{color:#155724;margin:0}.info-section{background-color:#f8f9fa;padding:20px;border-radius:5px;margin:20px 0;border-left:4px solid #2c5aa0}.next-steps{background-color:#e8f0ff;padding:20px;border-radius:5px;margin:20px 0}.payment-info{background-color:#fff3cd;padding:20px;border-radius:5px;margin:20px 0;border:1px solid #ffeaa7}.contact-info{background-color:#f0f8ff;padding:20px;border-radius:5px;margin:20px 0}ul{margin-left:20px}li{margin-bottom:8px}.print-btn{background-color:#2c5aa0;color:white;padding:15px 30px;border:none;border-radius:5px;cursor:pointer;font-size:16px;margin:20px auto;display:block}.print-btn:hover{background-color:#1e3d6f}@media print{.print-btn{display:none}body{background:white}.container{box-shadow:none;padding:20px}}</style></head><body><div class='container'><div class='success-header'><h2>✓ Application Submitted Successfully!</h2><p>Your Memorial Garden application has been received by Bay View Association</p></div><h1>Bay View Association Memorial Garden</h1><p style='text-align:center;font-weight:bold;margin-bottom:30px;'>Application Confirmation & Next Steps</p><div class='info-section'><h2>What Happens Next</h2><ol><li><strong>Application Review:</strong> Your application will be reviewed by the Bay View Association Board of Trustees</li><li><strong>Committee Contact:</strong> A member of Bay View's Memorial Garden Committee will contact you within 2-3 business days to:<ul><li>Confirm receipt of your application</li><li>Schedule the placement of ashes</li><li>Coordinate service details if requested</li><li>Answer any questions you may have</li></ul></li><li><strong>Payment Processing:</strong> Upon approval, payment will be processed according to your selected delivery method</li><li><strong>Final Arrangements:</strong> The committee will work with you to finalize all placement and service details</li></ol></div><div class='payment-info'><h2>Payment Information</h2><p><strong>Important:</strong> Please prepare your payment according to the method you selected:</p><ul><li><strong>Check Requirements:</strong> Make payable to 'Bay View Association' with memo 'Memorial Garden'</li><li><strong>Mail to:</strong> Bay View Association, P.O. Box 583, Petoskey, MI 49770</li><li><strong>Deliver to:</strong> Administration Office, Wade Hall, 1715 Encampment Avenue, Petoskey, MI 49770</li></ul><p><strong>Note:</strong> Full payment is required before placement can be scheduled.</p></div><div class='next-steps'><h2>Service Planning</h2><p>If you indicated interest in scheduling a service, the Memorial Garden Committee will:</p><ul><li>Review your preferred date and time</li><li>Coordinate with available dates in the Memorial Garden</li><li>Arrange celebrant services if requested (suggested honorarium: $100)</li><li>Provide guidance on service format and protocols</li><li>Assist with any special arrangements</li></ul></div><div class='contact-info'><h2>Questions or Concerns</h2><p>If you have immediate questions, please contact:</p><p><strong>Bay View Association Administration</strong><br>Wade Hall<br>1715 Encampment Avenue<br>Petoskey, MI 49770<br>Phone: 231.347.6225<br>Website: BayViewAssociation.org</p></div><div class='info-section'><h2>Memorial Garden Policies Reminder</h2><ul><li>Only cremated remains are accepted</li><li>All placements subject to Board approval</li><li>Memorial Garden maintained in perpetuity</li><li>Individual markers not permitted</li><li>Committee coordinates all placements</li></ul></div><p style='text-align:center;color:#666;font-style:italic;margin-top:40px;border-top:1px solid #ddd;padding-top:20px'>A National Historic Landmark - Founded in 1875<br>Thank you for choosing Bay View Association Memorial Garden</p><button class='print-btn' onclick='window.print()'>Print This Summary</button></div></body></html>">
+            <input type="hidden" name="_next" value="data:text/html,<html><head><title>Application Submitted - Bay View Memorial Garden</title><style>body{font-family:Arial,sans-serif;margin:0;padding:20px;background-color:#f5f5f5}.container{max-width:800px;margin:0 auto;background:white;padding:40px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}h1,h2{color:#2c5aa0;margin-bottom:20px}h1{text-align:center;border-bottom:2px solid #2c5aa0;padding-bottom:15px}h2{font-size:1.3em;margin-top:30px}.success-header{text-align:center;background-color:#d4edda;padding:20px;border-radius:5px;margin-bottom:30px;border:1px solid #c3e6cb}.success-header h2{color:#155724;margin:0}.info-section{background-color:#f8f9fa;padding:20px;border-radius:5px;margin:20px 0;border-left:4px solid #2c5aa0}.next-steps{background-color:#e8f0ff;padding:20px;border-radius:5px;margin:20px 0}.payment-info{background-color:#fff3cd;padding:20px;border-radius:5px;margin:20px 0;border:1px solid #ffeaa7}.contact-info{background-color:#f0f8ff;padding:20px;border-radius:5px;margin:20px 0}ul{margin-left:20px}li{margin-bottom:8px}.print-btn{background-color:#2c5aa0;color:white;padding:15px 30px;border:none;border-radius:5px;cursor:pointer;font-size:16px;margin:20px auto;display:block}.print-btn:hover{background-color:#1e3d6f}@media print{.print-btn{display:none}body{background:white}.container{box-shadow:none;padding:20px}}</style></head><body><div class='container'><div class='success-header'><h2>✓ Application Submitted Successfully!</h2><p>Your Memorial Garden application has been received by Bay View Association</p></div><h1>Bay View Association Memorial Garden</h1><p style='text-align:center;font-weight:bold;margin-bottom:30px;'>Application Confirmation & Next Steps</p><div class='info-section'><h2>What Happens Next</h2><ol><li><strong>Application Review:</strong> Your application will be reviewed by the Bay View Association Board of Trustees</li><li><strong>Committee Contact:</strong> A member of Bay View's Memorial Garden Committee will contact you within 2-3 business days to:<ul><li>Confirm receipt of your application</li><li>Schedule the placement of ashes</li><li>Coordinate service details if requested</li><li>Answer any questions you may have</li></ul></li><li><strong>Payment Processing:</strong> Upon approval, payment will be processed according to your selected delivery method</li><li><strong>Final Arrangements:</strong> The committee will work with you to finalize all placement and service details</li></ol></div><div class='payment-info'><h2>Payment Information</h2><p><strong>Important:</strong> Please prepare your payment according to the method you selected:</p><ul><li><strong>Check Requirements:</strong> Make payable to 'Bay View Association' with memo 'Memorial Garden'</li><li><strong>Mail to:</strong> Bay View Association, P.O. Box 583, Petoskey, MI 49770</li><li><strong>In-Person Delivery (Bay View Members & Relatives):</strong> Administration Office, Wade Hall, 1715 Encampment Avenue, Petoskey, MI 49770</li></ul><p><strong>Note:</strong> Full payment is required before placement can be scheduled.</p></div><div class='next-steps'><h2>Service Planning</h2><p>If you indicated interest in scheduling a service, the Memorial Garden Committee will:</p><ul><li>Review your preferred date and time</li><li>Coordinate with available dates in the Memorial Garden</li><li>Arrange celebrant services if requested (suggested honorarium: $100)</li><li>Provide guidance on service format and protocols</li><li>Assist with any special arrangements</li></ul></div><div class='contact-info'><h2>Questions or Concerns</h2><p>If you have immediate questions, please contact:</p><p><strong>Bay View Association Administration</strong><br>Wade Hall<br>1715 Encampment Avenue<br>Petoskey, MI 49770<br>Phone: 231.347.6225<br>Website: BayViewAssociation.org</p></div><div class='info-section'><h2>Memorial Garden Policies Reminder</h2><ul><li>Only cremated remains are accepted</li><li>All placements subject to Board approval</li><li>Memorial Garden maintained in perpetuity</li><li>Individual markers not permitted</li><li>Committee coordinates all placements</li></ul></div><p style='text-align:center;color:#666;font-style:italic;margin-top:40px;border-top:1px solid #ddd;padding-top:20px'>A National Historic Landmark - Founded in 1875<br>Thank you for choosing Bay View Association Memorial Garden</p><button class='print-btn' onclick='window.print()'>Print This Summary</button></div></body></html>">
             <input type="hidden" name="form_type" value="Memorial Garden Application">
             <input type="hidden" name="submission_date" id="submissionDate">
             <input type="hidden" name="calculated_fee" id="calculatedFee">
+            <!-- Combined address fields for email submission -->
+            <input type="hidden" name="home_address" id="home_address_combined">
+            <input type="hidden" name="bayview_address" id="bayview_address_combined">
             
             <!-- Bay View Membership - Moved to top for fee calculation -->
             <div class="form-section">
@@ -347,20 +365,22 @@
                 <h3>Your Placement Fee</h3>
                 <div class="fee-amount" id="feeAmount">$0.00</div>
                 <div class="fee-note" id="feeNote"></div>
-                <div style="margin-top: 15px;">
+                
+                <div class="payment-info-display">
                     <p><strong>Payment Instructions:</strong></p>
                     <p>Please make checks payable to "Bay View Association," with memo of "Memorial Garden."</p>
                     
                     <div style="margin-top: 15px;">
                         <p><strong>Payment Delivery Options:</strong></p>
-                        <div class="radio-group" style="margin-top: 10px;">
-                            <input type="radio" id="payment_mail" name="payment_delivery" value="Mail" required>
-                            <label for="payment_mail"><strong>Mail to:</strong> Bay View Association, P.O. Box 583, Petoskey, MI 49770</label>
+                        
+                        <div class="payment-option">
+                            <strong>Mail to:</strong> Bay View Association, P.O. Box 583, Petoskey, MI 49770
                         </div>
-                        <div class="radio-group">
-                            <input type="radio" id="payment_deliver" name="payment_delivery" value="Deliver in person" required>
-                            <label for="payment_deliver"><strong>Deliver in person to:</strong> Administration Office, Wade Hall<br>
-                            <span style="margin-left: 25px; font-size: 0.9em; color: #666;">1715 Encampment Avenue, Petoskey, MI 49770</span></label>
+                        
+                        <div class="payment-option" id="inPersonOption" style="display: none;">
+                            <strong>Deliver in person to:</strong> Administration Office, Wade Hall<br>
+                            <span style="margin-left: 0px; font-size: 0.9em; color: #666;">1715 Encampment Avenue, Petoskey, MI 49770</span><br>
+                            <span style="margin-left: 0px; font-size: 0.9em; color: #2c5aa0; font-style: italic;">Available for Bay View members and relatives</span>
                         </div>
                     </div>
                 </div>
@@ -382,8 +402,33 @@
                 </div>
             </div>
             
+            <!-- Placement Scheduling Section (only for immediate placement) -->
+            <div class="form-section" id="placementSchedulingSection" style="display: none;">
+                <h2>Placement Scheduling</h2>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="requested_placement_date">Requested Date for Placement</label>
+                        <input type="date" id="requested_placement_date" name="requested_placement_date">
+                        <small style="color: #666; font-style: italic;">Leave blank if flexible on timing</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred_placement_time">Preferred Time of Day</label>
+                        <select id="preferred_placement_time" name="preferred_placement_time">
+                            <option value="">Select preferred time...</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Evening">Evening</option>
+                            <option value="No preference">No preference</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="background-color: #e8f0ff; padding: 12px; border-radius: 4px; margin-top: 10px; font-size: 0.9em; color: #555;">
+                    <strong>Note:</strong> The Memorial Garden Committee will coordinate with you to confirm the placement date and time based on availability and weather conditions.
+                </div>
+            </div>
+            
             <!-- Service Planning Section -->
-            <div class="form-section">
+            <div class="form-section service-planning-section">
                 <h2>Service Planning</h2>
                 <div class="two-column">
                     <div class="form-group">
@@ -417,6 +462,9 @@
                         <input type="radio" id="celebrant_undecided" name="celebrant_requested" value="Undecided - Will discuss with committee">
                         <label for="celebrant_undecided">Undecided - Will discuss with Memorial Garden Committee</label>
                     </div>
+                    <div class="celebrant-info">
+                        <strong>Note:</strong> The Memorial Garden Committee will coordinate all service details with you, including celebrant arrangements, timing, and any special requests.
+                    </div>
                 </div>
             </div>
             
@@ -429,15 +477,15 @@
                         <input type="number" id="payment_amount" name="payment_amount" step="0.01" min="0" required readonly>
                         <small style="color: #666; font-style: italic;">Amount automatically calculated based on membership status</small>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="deceasedNameGroup">
                         <label for="deceased_name">Name(s) of deceased <span class="required">*</span></label>
-                        <input type="text" id="deceased_name" name="deceased_name" required>
+                        <input type="text" id="deceased_name" name="deceased_name">
                     </div>
                 </div>
             </div>
             
             <!-- Personal History Information -->
-            <div class="form-section">
+            <div class="form-section" id="personalHistorySection">
                 <h2>Personal History Information</h2>
                 <p style="margin-bottom: 15px; font-style: italic;">The following information about the interred individual is requested for the Memorial Garden archival file.</p>
                 
@@ -464,13 +512,23 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="home_address">Permanent Home Address</label>
-                    <input type="text" id="home_address" name="home_address" placeholder="Street, City, State, Zip">
+                    <label>Permanent Home Address</label>
+                    <input type="text" id="home_street" name="home_street" placeholder="Street Address" style="margin-bottom: 10px;">
+                    <input type="text" id="home_city" name="home_city" placeholder="City" style="margin-bottom: 10px;">
+                    <div class="two-column" style="gap: 10px;">
+                        <input type="text" id="home_state" name="home_state" placeholder="State">
+                        <input type="text" id="home_zip" name="home_zip" placeholder="Zip Code">
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="bayview_address">Bay View Address</label>
-                    <input type="text" id="bayview_address" name="bayview_address" placeholder="Street, City, State, Zip">
+                    <label>Bay View Address</label>
+                    <input type="text" id="bayview_street" name="bayview_street" placeholder="Street Address" style="margin-bottom: 10px;">
+                    <input type="text" id="bayview_city" name="bayview_city" placeholder="City" style="margin-bottom: 10px;">
+                    <div class="two-column" style="gap: 10px;">
+                        <input type="text" id="bayview_state" name="bayview_state" placeholder="State">
+                        <input type="text" id="bayview_zip" name="bayview_zip" placeholder="Zip Code">
+                    </div>
                 </div>
                 
                 <div class="two-column">
@@ -484,15 +542,9 @@
                     </div>
                 </div>
                 
-                <div class="two-column">
-                    <div class="form-group">
-                        <label for="death_date">Date of Death</label>
-                        <input type="date" id="death_date" name="death_date">
-                    </div>
-                    <div class="form-group">
-                        <label for="placement_date">Date of Placement in Memorial Garden</label>
-                        <input type="date" id="placement_date" name="placement_date">
-                    </div>
+                <div class="form-group" id="deathDateGroup">
+                    <label for="death_date">Date of Death (if applicable)</label>
+                    <input type="date" id="death_date" name="death_date">
                 </div>
                 
                 <div class="two-column">
@@ -520,8 +572,15 @@
                     <input type="text" id="contact_name" name="contact_name" required>
                 </div>
                 <div class="form-group">
-                    <label for="contact_address">Address <span class="required">*</span></label>
-                    <input type="text" id="contact_address" name="contact_address" required>
+                    <label>Address <span class="required">*</span></label>
+                    <input type="text" id="contact_street" name="contact_street" placeholder="Street Address" style="margin-bottom: 10px;" required>
+                    <input type="text" id="contact_city" name="contact_city" placeholder="City" style="margin-bottom: 10px;" required>
+                    <div class="two-column" style="gap: 10px;">
+                        <input type="text" id="contact_state" name="contact_state" placeholder="State" required>
+                        <input type="text" id="contact_zip" name="contact_zip" placeholder="Zip Code" required>
+                    </div>
+                    <!-- Hidden field for combined address -->
+                    <input type="hidden" name="contact_address" id="contact_address_combined">
                 </div>
                 <div class="two-column">
                     <div class="form-group">
@@ -593,9 +652,17 @@
                 const feeNote = document.getElementById('feeNote');
                 const paymentAmount = document.getElementById('payment_amount');
                 const calculatedFee = document.getElementById('calculatedFee');
+                const inPersonOption = document.getElementById('inPersonOption');
                 
                 // Show/hide member details
                 memberDetails.style.display = this.value === 'Yes' ? 'block' : 'none';
+                
+                // Show/hide in-person delivery option based on membership
+                if (this.value === 'Yes') {
+                    inPersonOption.style.display = 'block';
+                } else {
+                    inPersonOption.style.display = 'none';
+                }
                 
                 // Show fee display and update amounts
                 feeDisplay.style.display = 'block';
@@ -614,28 +681,135 @@
             });
         });
         
+        // Show/hide fields based on application purpose
+        document.querySelectorAll('input[name="application_purpose"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const deathDateGroup = document.getElementById('deathDateGroup');
+                const deathDateInput = document.getElementById('death_date');
+                const personalHistorySection = document.getElementById('personalHistorySection');
+                const deceasedNameGroup = document.getElementById('deceasedNameGroup');
+                const deceasedNameInput = document.getElementById('deceased_name');
+                const firstNameInput = document.getElementById('first_name');
+                const lastNameInput = document.getElementById('last_name');
+                const placementSchedulingSection = document.getElementById('placementSchedulingSection');
+                const placementDateInput = document.getElementById('requested_placement_date');
+                const placementTimeInput = document.getElementById('preferred_placement_time');
+                
+                if (this.value === 'Prepayment for future placement of ashes') {
+                    // Hide fields for prepayment (planning ahead)
+                    deathDateGroup.style.display = 'none';
+                    personalHistorySection.style.display = 'none';
+                    deceasedNameGroup.style.display = 'none';
+                    placementSchedulingSection.style.display = 'none';
+                    
+                    // Remove required attributes and clear values
+                    deathDateInput.removeAttribute('required');
+                    deathDateInput.value = '';
+                    deceasedNameInput.removeAttribute('required');
+                    deceasedNameInput.value = '';
+                    firstNameInput.removeAttribute('required');
+                    lastNameInput.removeAttribute('required');
+                    placementDateInput.value = '';
+                    placementTimeInput.value = '';
+                    
+                    // Clear all personal history fields
+                    firstNameInput.value = '';
+                    lastNameInput.value = '';
+                    document.getElementById('middle_name').value = '';
+                    document.getElementById('maiden_name').value = '';
+                    document.getElementById('home_street').value = '';
+                    document.getElementById('home_city').value = '';
+                    document.getElementById('home_state').value = '';
+                    document.getElementById('home_zip').value = '';
+                    document.getElementById('bayview_street').value = '';
+                    document.getElementById('bayview_city').value = '';
+                    document.getElementById('bayview_state').value = '';
+                    document.getElementById('bayview_zip').value = '';
+                    document.getElementById('birth_date').value = '';
+                    document.getElementById('birth_place').value = '';
+                    document.getElementById('mother_name').value = '';
+                    document.getElementById('father_name').value = '';
+                    document.getElementById('bayview_history').value = '';
+                    
+                } else {
+                    // Show fields for immediate placement
+                    deathDateGroup.style.display = 'block';
+                    personalHistorySection.style.display = 'block';
+                    deceasedNameGroup.style.display = 'block';
+                    placementSchedulingSection.style.display = 'block';
+                    
+                    // Add required attributes back
+                    deceasedNameInput.setAttribute('required', 'required');
+                    firstNameInput.setAttribute('required', 'required');
+                    lastNameInput.setAttribute('required', 'required');
+                }
+            });
+        });
+        
         // Set minimum dates to today
         const today = new Date().toISOString().split('T')[0];
-        document.getElementById('placement_date').min = today;
         document.getElementById('requested_service_date').min = today;
+        document.getElementById('requested_placement_date').min = today;
         
-        // Auto-populate deceased name when first/last name changes
+        // Auto-populate deceased name when first/last name changes (only for immediate placement)
         function updateDeceasedName() {
-            const firstName = document.getElementById('first_name').value;
-            const lastName = document.getElementById('last_name').value;
-            const middleName = document.getElementById('middle_name').value;
+            const deceasedNameGroup = document.getElementById('deceasedNameGroup');
+            const deceasedNameInput = document.getElementById('deceased_name');
             
-            if (firstName || lastName) {
-                const fullName = [firstName, middleName, lastName]
-                    .filter(name => name && name.trim())
-                    .join(' ');
-                document.getElementById('deceased_name').value = fullName;
+            // Only update if the deceased name field is visible
+            if (deceasedNameGroup.style.display !== 'none') {
+                const firstName = document.getElementById('first_name').value;
+                const lastName = document.getElementById('last_name').value;
+                const middleName = document.getElementById('middle_name').value;
+                
+                if (firstName || lastName) {
+                    const fullName = [firstName, middleName, lastName]
+                        .filter(name => name && name.trim())
+                        .join(' ');
+                    deceasedNameInput.value = fullName;
+                }
             }
         }
         
         document.getElementById('first_name').addEventListener('input', updateDeceasedName);
         document.getElementById('last_name').addEventListener('input', updateDeceasedName);
         document.getElementById('middle_name').addEventListener('input', updateDeceasedName);
+        
+        // Combine address fields for submission
+        function combineAddresses() {
+            // Combine home address
+            const homeStreet = document.getElementById('home_street').value || '';
+            const homeCity = document.getElementById('home_city').value || '';
+            const homeState = document.getElementById('home_state').value || '';
+            const homeZip = document.getElementById('home_zip').value || '';
+            
+            const homeAddress = [homeStreet, homeCity, homeState, homeZip]
+                .filter(part => part.trim())
+                .join(', ');
+            document.getElementById('home_address_combined').value = homeAddress;
+            
+            // Combine Bay View address
+            const bayviewStreet = document.getElementById('bayview_street').value || '';
+            const bayviewCity = document.getElementById('bayview_city').value || '';
+            const bayviewState = document.getElementById('bayview_state').value || '';
+            const bayviewZip = document.getElementById('bayview_zip').value || '';
+            
+            const bayviewAddress = [bayviewStreet, bayviewCity, bayviewState, bayviewZip]
+                .filter(part => part.trim())
+                .join(', ');
+            document.getElementById('bayview_address_combined').value = bayviewAddress;
+            
+            // Combine contact address
+            const contactStreet = document.getElementById('contact_street').value || '';
+            const contactCity = document.getElementById('contact_city').value || '';
+            const contactState = document.getElementById('contact_state').value || '';
+            const contactZip = document.getElementById('contact_zip').value || '';
+            
+            const contactAddress = [contactStreet, contactCity, contactState, contactZip]
+                .filter(part => part.trim())
+                .join(', ');
+            document.getElementById('contact_address_combined').value = contactAddress;
+        }
         
         // Form submission handling
         document.getElementById('memorialGardenForm').addEventListener('submit', function(e) {
@@ -650,13 +824,8 @@
                 return;
             }
             
-            // Check if payment delivery method is selected
-            const paymentDeliverySelected = document.querySelector('input[name="payment_delivery"]:checked');
-            if (!paymentDeliverySelected) {
-                alert('Please select how you will deliver your payment.');
-                e.preventDefault();
-                return;
-            }
+            // Combine address fields before submission
+            combineAddresses();
             
             // Show loading state
             submitButton.disabled = true;
