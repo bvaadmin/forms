@@ -427,8 +427,18 @@
                 </div>
             </div>
             
+            <!-- Prepayment Information Section (only for prepayment) -->
+            <div class="form-section" id="prepaymentInfoSection" style="display: none;">
+                <h2>Prepayment Information</h2>
+                <div class="form-group">
+                    <label for="prepayment_names">Name(s) of individual(s) for whom prepayment is being made <span class="required">*</span></label>
+                    <input type="text" id="prepayment_names" name="prepayment_names">
+                    <small style="color: #666; font-style: italic;">Enter the name(s) of the person(s) this prepayment covers (e.g., "John and Mary Smith" or "Myself - John Doe")</small>
+                </div>
+            </div>
+            
             <!-- Service Planning Section -->
-            <div class="form-section service-planning-section">
+            <div class="form-section service-planning-section" id="servicePlanningSection">
                 <h2>Service Planning</h2>
                 <div class="two-column">
                     <div class="form-group">
@@ -694,6 +704,9 @@
                 const placementSchedulingSection = document.getElementById('placementSchedulingSection');
                 const placementDateInput = document.getElementById('requested_placement_date');
                 const placementTimeInput = document.getElementById('preferred_placement_time');
+                const prepaymentInfoSection = document.getElementById('prepaymentInfoSection');
+                const prepaymentNamesInput = document.getElementById('prepayment_names');
+                const servicePlanningSection = document.getElementById('servicePlanningSection');
                 
                 if (this.value === 'Prepayment for future placement of ashes') {
                     // Hide fields for prepayment (planning ahead)
@@ -701,8 +714,13 @@
                     personalHistorySection.style.display = 'none';
                     deceasedNameGroup.style.display = 'none';
                     placementSchedulingSection.style.display = 'none';
+                    servicePlanningSection.style.display = 'none';
                     
-                    // Remove required attributes and clear values
+                    // Show prepayment-specific fields
+                    prepaymentInfoSection.style.display = 'block';
+                    prepaymentNamesInput.setAttribute('required', 'required');
+                    
+                    // Remove required attributes and clear values for immediate placement fields
                     deathDateInput.removeAttribute('required');
                     deathDateInput.value = '';
                     deceasedNameInput.removeAttribute('required');
@@ -711,6 +729,13 @@
                     lastNameInput.removeAttribute('required');
                     placementDateInput.value = '';
                     placementTimeInput.value = '';
+                    
+                    // Clear service planning fields
+                    document.getElementById('requested_service_date').value = '';
+                    document.getElementById('requested_service_time').value = '';
+                    document.querySelectorAll('input[name="celebrant_requested"]').forEach(radio => {
+                        radio.checked = false;
+                    });
                     
                     // Clear all personal history fields
                     firstNameInput.value = '';
@@ -737,8 +762,14 @@
                     personalHistorySection.style.display = 'block';
                     deceasedNameGroup.style.display = 'block';
                     placementSchedulingSection.style.display = 'block';
+                    servicePlanningSection.style.display = 'block';
                     
-                    // Add required attributes back
+                    // Hide prepayment-specific fields
+                    prepaymentInfoSection.style.display = 'none';
+                    prepaymentNamesInput.removeAttribute('required');
+                    prepaymentNamesInput.value = '';
+                    
+                    // Add required attributes back for immediate placement
                     deceasedNameInput.setAttribute('required', 'required');
                     firstNameInput.setAttribute('required', 'required');
                     lastNameInput.setAttribute('required', 'required');
