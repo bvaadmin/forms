@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memorial Garden Application</title>
+    <title>Memorial Garden Application - Bay View Association</title>
     <style>
         * {
             box-sizing: border-box;
@@ -79,10 +79,19 @@
         select,
         textarea {
             width: 100%;
-            padding: 8px 12px;
+            padding: 10px 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #2c5aa0;
+            box-shadow: 0 0 0 2px rgba(44, 90, 160, 0.1);
         }
         
         textarea {
@@ -110,24 +119,31 @@
             margin-left: 0;
             margin-right: 20px;
             font-weight: normal;
+            cursor: pointer;
         }
         
         .btn-primary {
             background-color: #2c5aa0;
             color: white;
-            padding: 12px 30px;
+            padding: 15px 40px;
             font-size: 16px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
-            max-width: 300px;
+            max-width: 400px;
             margin: 0 auto;
             display: block;
+            transition: background-color 0.3s;
         }
         
         .btn-primary:hover {
             background-color: #1e3d6f;
+        }
+        
+        .btn-primary:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
         }
         
         .required {
@@ -186,11 +202,34 @@
         }
         
         #memberDetails {
-            margin-left: 20px;
+            margin-top: 15px;
             padding: 15px;
             background-color: #f8f9fa;
             border-radius: 5px;
+            border-left: 4px solid #2c5aa0;
             display: none;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .loading::after {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2c5aa0;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         @media (max-width: 600px) {
@@ -199,7 +238,7 @@
             }
             
             .container {
-                padding: 15px;
+                padding: 20px;
             }
         }
     </style>
@@ -212,12 +251,12 @@
             <p>Placement of Cremains</p>
         </div>
         
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form action="https://formspree.io/f/mnnzqjkb" method="POST" id="memorialGardenForm">
             <!-- Hidden fields for form processing -->
             <input type="hidden" name="_subject" value="New Memorial Garden Application - Bay View Association">
-            <input type="hidden" name="_next" value="data:text/html,<html><body style='font-family: Arial, sans-serif; text-align: center; padding: 50px;'><h2 style='color: #2c5aa0;'>Thank you!</h2><p>Your Memorial Garden application has been submitted successfully.</p><p>You will be contacted within 2 business days regarding approval and next steps.</p></body></html>">
-            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="data:text/html,<html><body style='font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f5f5f5;'><div style='max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'><h2 style='color: #2c5aa0; margin-bottom: 20px;'>Application Submitted Successfully!</h2><p style='margin-bottom: 20px; font-size: 16px;'>Thank you for submitting your Memorial Garden application.</p><p style='margin-bottom: 20px;'>Your application has been received and will be reviewed by the Bay View Association Board of Trustees.</p><p style='margin-bottom: 20px;'><strong>Next Steps:</strong></p><ul style='text-align: left; margin-bottom: 20px;'><li>You will receive a confirmation email shortly</li><li>The Board will review your application</li><li>You will be contacted within 2 business days</li><li>Payment processing will begin upon approval</li></ul><p style='color: #666; font-size: 14px;'>A National Historic Landmark - Founded in 1875<br>Bay View Association<br>1715 Encampment Avenue, Petoskey, MI 49770</p></div></body></html>">
             <input type="hidden" name="form_type" value="Memorial Garden Application">
+            <input type="hidden" name="submission_date" id="submissionDate">
             
             <!-- Purpose Section -->
             <div class="form-section">
@@ -250,6 +289,7 @@
                         </tr>
                     </table>
                     <p style="margin-top: 10px;"><strong>Note:</strong> Please make checks payable to "Bay View Association," with memo of "Memorial Garden."</p>
+                    <p><strong>Mail to:</strong> Bay View Association, P.O. Box 583, Petoskey, MI 49770</p>
                 </div>
                 
                 <div class="payment-section">
@@ -336,7 +376,7 @@
                 
                 <div class="form-group">
                     <label for="bayview_history">Bay View History (family, committees, role in community, etc.)</label>
-                    <textarea id="bayview_history" name="bayview_history" rows="4"></textarea>
+                    <textarea id="bayview_history" name="bayview_history" rows="4" placeholder="Please describe the deceased's connection to Bay View Association..."></textarea>
                 </div>
             </div>
             
@@ -377,13 +417,15 @@
                         <label for="member_no">No</label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="member_name">Bay View Member Name (if applicable)</label>
-                    <input type="text" id="member_name" name="member_name">
-                </div>
-                <div class="form-group">
-                    <label for="member_relationship">Relationship to member (if applicable)</label>
-                    <input type="text" id="member_relationship" name="member_relationship">
+                <div id="memberDetails">
+                    <div class="form-group">
+                        <label for="member_name">Bay View Member Name</label>
+                        <input type="text" id="member_name" name="member_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="member_relationship">Relationship to member</label>
+                        <input type="text" id="member_relationship" name="member_relationship">
+                    </div>
                 </div>
             </div>
             
@@ -402,8 +444,10 @@
                 </div>
                 
                 <div class="form-group">
-                    <input type="checkbox" id="policy_agreement" name="policy_agreement" value="I agree to all Memorial Garden policies" required style="width: auto; margin-right: 10px;">
-                    <label for="policy_agreement" style="display: inline; font-weight: normal;">I have read and agree to comply with all Memorial Garden policies. I understand that all placements are subject to approval by the Bay View Board of Trustees.</label>
+                    <div class="radio-group">
+                        <input type="checkbox" id="policy_agreement" name="policy_agreement" value="I agree to all Memorial Garden policies" required style="width: auto; margin-right: 10px;">
+                        <label for="policy_agreement" style="display: inline; font-weight: normal;">I have read and agree to comply with all Memorial Garden policies. I understand that all placements are subject to approval by the Bay View Board of Trustees.</label>
+                    </div>
                 </div>
             </div>
             
@@ -416,35 +460,75 @@
             
             <!-- Submit Section -->
             <div style="text-align: center; margin-top: 30px;">
-                <button type="submit" class="btn-primary">Submit Memorial Garden Application</button>
+                <div class="loading" id="loading">
+                    <p>Submitting your application...</p>
+                </div>
+                <button type="submit" class="btn-primary" id="submitButton">Submit Memorial Garden Application</button>
             </div>
         </form>
     </div>
     
     <script>
-        // Simple form enhancements that work in iframe
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set minimum dates to today
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('placement_date').min = today;
+        // Set submission date
+        document.getElementById('submissionDate').value = new Date().toISOString();
+        
+        // Show/hide member details based on membership selection
+        document.querySelectorAll('input[name="is_member"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const memberDetails = document.getElementById('memberDetails');
+                memberDetails.style.display = this.value === 'Yes' ? 'block' : 'none';
+            });
+        });
+        
+        // Set minimum dates to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('placement_date').min = today;
+        
+        // Auto-populate deceased name when first/last name changes
+        function updateDeceasedName() {
+            const firstName = document.getElementById('first_name').value;
+            const lastName = document.getElementById('last_name').value;
+            const middleName = document.getElementById('middle_name').value;
             
-            // Auto-populate deceased name when first/last name changes
-            function updateDeceasedName() {
-                const firstName = document.getElementById('first_name').value;
-                const lastName = document.getElementById('last_name').value;
-                const middleName = document.getElementById('middle_name').value;
-                
-                if (firstName || lastName) {
-                    const fullName = [firstName, middleName, lastName]
-                        .filter(name => name && name.trim())
-                        .join(' ');
-                    document.getElementById('deceased_name').value = fullName;
-                }
+            if (firstName || lastName) {
+                const fullName = [firstName, middleName, lastName]
+                    .filter(name => name && name.trim())
+                    .join(' ');
+                document.getElementById('deceased_name').value = fullName;
             }
+        }
+        
+        document.getElementById('first_name').addEventListener('input', updateDeceasedName);
+        document.getElementById('last_name').addEventListener('input', updateDeceasedName);
+        document.getElementById('middle_name').addEventListener('input', updateDeceasedName);
+        
+        // Form submission handling
+        document.getElementById('memorialGardenForm').addEventListener('submit', function(e) {
+            const submitButton = document.getElementById('submitButton');
+            const loading = document.getElementById('loading');
             
-            document.getElementById('first_name').addEventListener('input', updateDeceasedName);
-            document.getElementById('last_name').addEventListener('input', updateDeceasedName);
-            document.getElementById('middle_name').addEventListener('input', updateDeceasedName);
+            // Show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            loading.style.display = 'block';
+            
+            // Form will submit normally to Formspree
+            // Loading state will be visible until redirect happens
+        });
+        
+        // Improve form validation feedback
+        document.querySelectorAll('input[required], textarea[required]').forEach(field => {
+            field.addEventListener('invalid', function() {
+                this.style.borderColor = '#dc3545';
+            });
+            
+            field.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.style.borderColor = '#28a745';
+                } else {
+                    this.style.borderColor = '#ddd';
+                }
+            });
         });
     </script>
 </body>
