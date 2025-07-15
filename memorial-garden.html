@@ -311,7 +311,7 @@
         <form action="https://formspree.io/f/mnnzqjkb" method="POST" id="memorialGardenForm">
             <!-- Hidden fields for form processing -->
             <input type="hidden" name="_subject" value="New Memorial Garden Application - Bay View Association">
-            <input type="hidden" name="_next" value="data:text/html,<html><body style='font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f5f5f5;'><div style='max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'><h2 style='color: #2c5aa0; margin-bottom: 20px;'>Application Submitted Successfully!</h2><p style='margin-bottom: 20px; font-size: 16px;'>Thank you for submitting your Memorial Garden application.</p><p style='margin-bottom: 20px;'>Your application has been received and will be reviewed by the Bay View Association Board of Trustees.</p><p style='margin-bottom: 20px;'><strong>Next Steps:</strong></p><ul style='text-align: left; margin-bottom: 20px;'><li>You will receive a confirmation email shortly</li><li>The Board will review your application</li><li>You will be contacted within 2 business days</li><li>Payment processing will begin upon approval</li></ul><p style='color: #666; font-size: 14px;'>A National Historic Landmark - Founded in 1875<br>Bay View Association<br>1715 Encampment Avenue, Petoskey, MI 49770</p></div></body></html>">
+            <input type="hidden" name="_next" value="data:text/html,<html><head><title>Application Submitted - Bay View Memorial Garden</title><style>body{font-family:Arial,sans-serif;margin:0;padding:20px;background-color:#f5f5f5}.container{max-width:800px;margin:0 auto;background:white;padding:40px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}h1,h2{color:#2c5aa0;margin-bottom:20px}h1{text-align:center;border-bottom:2px solid #2c5aa0;padding-bottom:15px}h2{font-size:1.3em;margin-top:30px}.success-header{text-align:center;background-color:#d4edda;padding:20px;border-radius:5px;margin-bottom:30px;border:1px solid #c3e6cb}.success-header h2{color:#155724;margin:0}.info-section{background-color:#f8f9fa;padding:20px;border-radius:5px;margin:20px 0;border-left:4px solid #2c5aa0}.next-steps{background-color:#e8f0ff;padding:20px;border-radius:5px;margin:20px 0}.payment-info{background-color:#fff3cd;padding:20px;border-radius:5px;margin:20px 0;border:1px solid #ffeaa7}.contact-info{background-color:#f0f8ff;padding:20px;border-radius:5px;margin:20px 0}ul{margin-left:20px}li{margin-bottom:8px}.print-btn{background-color:#2c5aa0;color:white;padding:15px 30px;border:none;border-radius:5px;cursor:pointer;font-size:16px;margin:20px auto;display:block}.print-btn:hover{background-color:#1e3d6f}@media print{.print-btn{display:none}body{background:white}.container{box-shadow:none;padding:20px}}</style></head><body><div class='container'><div class='success-header'><h2>✓ Application Submitted Successfully!</h2><p>Your Memorial Garden application has been received by Bay View Association</p></div><h1>Bay View Association Memorial Garden</h1><p style='text-align:center;font-weight:bold;margin-bottom:30px;'>Application Confirmation & Next Steps</p><div class='info-section'><h2>What Happens Next</h2><ol><li><strong>Application Review:</strong> Your application will be reviewed by the Bay View Association Board of Trustees</li><li><strong>Committee Contact:</strong> A member of Bay View's Memorial Garden Committee will contact you within 2-3 business days to:<ul><li>Confirm receipt of your application</li><li>Schedule the placement of ashes</li><li>Coordinate service details if requested</li><li>Answer any questions you may have</li></ul></li><li><strong>Payment Processing:</strong> Upon approval, payment will be processed according to your selected delivery method</li><li><strong>Final Arrangements:</strong> The committee will work with you to finalize all placement and service details</li></ol></div><div class='payment-info'><h2>Payment Information</h2><p><strong>Important:</strong> Please prepare your payment according to the method you selected:</p><ul><li><strong>Check Requirements:</strong> Make payable to 'Bay View Association' with memo 'Memorial Garden'</li><li><strong>Mail to:</strong> Bay View Association, P.O. Box 583, Petoskey, MI 49770</li><li><strong>Deliver to:</strong> Administration Office, Wade Hall, 1715 Encampment Avenue, Petoskey, MI 49770</li></ul><p><strong>Note:</strong> Full payment is required before placement can be scheduled.</p></div><div class='next-steps'><h2>Service Planning</h2><p>If you indicated interest in scheduling a service, the Memorial Garden Committee will:</p><ul><li>Review your preferred date and time</li><li>Coordinate with available dates in the Memorial Garden</li><li>Arrange celebrant services if requested (suggested honorarium: $100)</li><li>Provide guidance on service format and protocols</li><li>Assist with any special arrangements</li></ul></div><div class='contact-info'><h2>Questions or Concerns</h2><p>If you have immediate questions, please contact:</p><p><strong>Bay View Association Administration</strong><br>Wade Hall<br>1715 Encampment Avenue<br>Petoskey, MI 49770<br>Phone: 231.347.6225<br>Website: BayViewAssociation.org</p></div><div class='info-section'><h2>Memorial Garden Policies Reminder</h2><ul><li>Only cremated remains are accepted</li><li>All placements subject to Board approval</li><li>Memorial Garden maintained in perpetuity</li><li>Individual markers not permitted</li><li>Committee coordinates all placements</li></ul></div><p style='text-align:center;color:#666;font-style:italic;margin-top:40px;border-top:1px solid #ddd;padding-top:20px'>A National Historic Landmark - Founded in 1875<br>Thank you for choosing Bay View Association Memorial Garden</p><button class='print-btn' onclick='window.print()'>Print This Summary</button></div></body></html>">
             <input type="hidden" name="form_type" value="Memorial Garden Application">
             <input type="hidden" name="submission_date" id="submissionDate">
             <input type="hidden" name="calculated_fee" id="calculatedFee">
@@ -378,6 +378,44 @@
                     <div class="radio-group">
                         <input type="radio" id="prepayment" name="application_purpose" value="Prepayment for future placement of ashes" required>
                         <label for="prepayment">Prepayment for future placement of ashes</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Planning Section -->
+            <div class="form-section">
+                <h2>Service Planning</h2>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="requested_service_date">Requested Date for Service</label>
+                        <input type="date" id="requested_service_date" name="requested_service_date">
+                        <small style="color: #666; font-style: italic;">Leave blank if not yet determined</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="requested_service_time">Preferred Time of Day</label>
+                        <select id="requested_service_time" name="requested_service_time">
+                            <option value="">Select preferred time...</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Evening">Evening</option>
+                            <option value="No preference">No preference</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Would you like Bay View to provide a celebrant for the service?</label>
+                    <div class="radio-group">
+                        <input type="radio" id="celebrant_yes" name="celebrant_requested" value="Yes - Request Bay View celebrant">
+                        <label for="celebrant_yes">Yes - Request Bay View celebrant (suggested honorarium: $100)</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="celebrant_no" name="celebrant_requested" value="No - Will provide own celebrant">
+                        <label for="celebrant_no">No - We will provide our own celebrant</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="celebrant_undecided" name="celebrant_requested" value="Undecided - Will discuss with committee">
+                        <label for="celebrant_undecided">Undecided - Will discuss with Memorial Garden Committee</label>
                     </div>
                 </div>
             </div>
@@ -579,6 +617,7 @@
         // Set minimum dates to today
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('placement_date').min = today;
+        document.getElementById('requested_service_date').min = today;
         
         // Auto-populate deceased name when first/last name changes
         function updateDeceasedName() {
