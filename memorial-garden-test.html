@@ -47,9 +47,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        .form-row .form-group {
-            margin-bottom: 0;
-        }
         .button-group {
             margin-top: 30px;
             display: flex;
@@ -122,9 +119,6 @@
             background-color: #e9ecef;
             border-radius: 4px;
         }
-        #apiEndpoint input {
-            margin-top: 10px;
-        }
         pre {
             background-color: #f8f9fa;
             padding: 15px;
@@ -141,7 +135,7 @@
         
         <div id="apiEndpoint">
             <label for="apiUrl">API Endpoint URL:</label>
-            <input type="text" id="apiUrl" value="https://your-vercel-app.vercel.app/api/submit-memorial-garden" placeholder="Enter your Vercel API URL">
+            <input type="text" id="apiUrl" value="https://bay-view-memorial-api.vercel.app/api/submit-memorial-garden" placeholder="Enter your Vercel API URL">
         </div>
 
         <form id="testForm">
@@ -184,7 +178,7 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="contactName">Contact Name:</label>
-                    <input type="text" id="contactName" name="Contact Name">
+                    <input type="text" id="contactName" name="Contact Name" required>
                 </div>
                 <div class="form-group">
                     <label for="contactPhone">Contact Phone:</label>
@@ -198,139 +192,67 @@
             </div>
 
             <div class="form-group">
-                <label for="contactAddress">Permanent Home Address:</label>
+                <label for="contactAddress">Contact Address:</label>
                 <textarea id="contactAddress" name="Contact Address"></textarea>
             </div>
 
-            <div class="form-group">
-                <label for="bayViewAddress">Bay View Address:</label>
-                <textarea id="bayViewAddress" name="Bay View Address"></textarea>
-            </div>
-
-            <div class="section-header">Deceased Information</div>
+            <div class="section-header">Memorial Information</div>
             
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="First Name of Deceased">
-                </div>
-                <div class="form-group">
-                    <label for="middleName">Middle Name:</label>
-                    <input type="text" id="middleName" name="Middle Name">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" id="lastName" name="Last Name of Deceased">
-                </div>
-                <div class="form-group">
-                    <label for="maidenName">Maiden Name:</label>
-                    <input type="text" id="maidenName" name="Maiden Name">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="dateOfBirth">Date of Birth:</label>
-                    <input type="date" id="dateOfBirth" name="date:Date of Birth:start">
-                </div>
-                <div class="form-group">
-                    <label for="dateOfDeath">Date of Death:</label>
-                    <input type="date" id="dateOfDeath" name="date:Date of Death:start">
-                </div>
-            </div>
-
             <div class="form-group">
-                <label for="placeOfBirth">Place of Birth:</label>
-                <input type="text" id="placeOfBirth" name="Place of Birth">
+                <label for="deceasedName">Deceased Name:</label>
+                <input type="text" id="deceasedName" name="Deceased Name">
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="motherName">Mother's Name:</label>
-                    <input type="text" id="motherName" name="Mother's Name">
-                </div>
-                <div class="form-group">
-                    <label for="fatherName">Father's Name:</label>
-                    <input type="text" id="fatherName" name="Father's Name">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="numberOfCremains">Number of Cremains:</label>
-                <input type="number" id="numberOfCremains" name="Number of Cremains" min="1" value="1">
-            </div>
-
-            <div class="section-header">Bay View Membership</div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="bayViewMember">Bay View Member Status:</label>
-                    <select id="bayViewMember" name="Bay View Member">
-                        <option value="Yes">Yes - Member</option>
-                        <option value="No">No - Non-Member</option>
-                        <option value="Relative of Member">Relative of Member</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="memberId">Member ID (if applicable):</label>
-                    <input type="text" id="memberId" name="Member ID">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="memberName">Member Name (if relative):</label>
-                    <input type="text" id="memberName" name="Member Name">
-                </div>
-                <div class="form-group">
-                    <label for="memberRelationship">Relationship to Member:</label>
-                    <input type="text" id="memberRelationship" name="Member Relationship">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="bayViewHistory">Bay View History:</label>
-                <textarea id="bayViewHistory" name="Bay View History" rows="4"></textarea>
-            </div>
-
-            <div class="section-header">Service Details</div>
-            
             <div class="form-row">
                 <div class="form-group">
                     <label for="serviceDate">Service Date:</label>
                     <input type="date" id="serviceDate" name="date:Service Date:start">
                 </div>
                 <div class="form-group">
-                    <label for="preferredTime">Preferred Time:</label>
-                    <select id="preferredTime" name="Preferred Time">
-                        <option value="Morning (9AM-12PM)">Morning (9AM-12PM)</option>
-                        <option value="Afternoon (2PM-4PM)">Afternoon (2PM-4PM)</option>
-                        <option value="Evening (4PM-6PM)">Evening (4PM-6PM)</option>
+                    <label for="celebrantRequested">Celebrant Requested:</label>
+                    <select id="celebrantRequested" name="Celebrant Requested">
+                        <option value="Yes - Bay View celebrant">Yes - Bay View celebrant</option>
+                        <option value="No - Own celebrant">No - Own celebrant</option>
+                        <option value="Undecided">Undecided</option>
                     </select>
                 </div>
             </div>
 
+            <div class="section-header">Bay View Membership</div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bayViewMember">Bay View Member:</label>
+                    <select id="bayViewMember" name="Bay View Member">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="memberName">Member Name (if not applicant):</label>
+                    <input type="text" id="memberName" name="Member Name">
+                </div>
+            </div>
+
             <div class="form-group">
-                <label for="celebrantRequested">Celebrant Requested:</label>
-                <select id="celebrantRequested" name="Celebrant Requested">
-                    <option value="Yes - Bay View celebrant">Yes - Bay View celebrant</option>
-                    <option value="No - Own celebrant">No - Own celebrant</option>
-                    <option value="Undecided">Undecided</option>
-                </select>
+                <label for="memberRelationship">Member Relationship:</label>
+                <input type="text" id="memberRelationship" name="Member Relationship" placeholder="e.g., Parent, Spouse, Sibling">
+            </div>
+
+            <div class="form-group">
+                <label for="bayViewHistory">Bay View History:</label>
+                <textarea id="bayViewHistory" name="Bay View History" rows="4" placeholder="Describe the deceased's connection to Bay View..."></textarea>
             </div>
 
             <div class="section-header">Payment Information</div>
             
             <div class="form-group">
-                <label for="feeAmount">Fee Amount:</label>
-                <input type="number" id="feeAmount" name="Fee Amount" step="0.01">
+                <label for="feeAmount">Fee Amount ($):</label>
+                <input type="number" id="feeAmount" name="Fee Amount" step="0.01" min="0">
             </div>
 
             <div class="form-group">
-                <label for="prepaymentNames">Prepayment Names (if applicable):</label>
+                <label for="prepaymentNames">Prepayment Names (for Prepayment applications):</label>
                 <textarea id="prepaymentNames" name="Prepayment Names" placeholder="Enter names for prepayment, one per line"></textarea>
             </div>
 
@@ -353,9 +275,7 @@
         // Random data generators
         const firstNames = ['James', 'Mary', 'John', 'Patricia', 'Robert', 'Jennifer', 'Michael', 'Linda', 'William', 'Elizabeth'];
         const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez'];
-        const middleNames = ['Ann', 'Marie', 'Lynn', 'Lee', 'Rose', 'Allen', 'James', 'Edward', 'Paul', 'Grace'];
-        const cities = ['Detroit', 'Grand Rapids', 'Ann Arbor', 'Lansing', 'Traverse City', 'Kalamazoo', 'Flint', 'Sterling Heights', 'Warren', 'Dearborn'];
-        const states = ['Michigan', 'Illinois', 'Ohio', 'Indiana', 'Wisconsin'];
+        const cities = ['Detroit', 'Grand Rapids', 'Ann Arbor', 'Lansing', 'Traverse City', 'Kalamazoo', 'Flint'];
         
         // Generate submission ID
         function generateSubmissionId() {
@@ -370,65 +290,41 @@
 
         // Generate random email
         function generateEmail(firstName, lastName) {
-            const domains = ['example.com', 'test.com', 'email.com', 'mail.com'];
-            const domain = domains[Math.floor(Math.random() * domains.length)];
-            return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
+            const domains = ['example.com', 'test.com', 'email.com'];
+            return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domains[Math.floor(Math.random() * domains.length)]}`;
         }
 
         // Generate random address
-        function generateAddress(city, state) {
+        function generateAddress() {
             const streetNum = Math.floor(100 + Math.random() * 9900);
-            const streets = ['Main St', 'Oak Ave', 'Maple Dr', 'Pine Rd', 'Elm St', 'Lake Shore Dr', 'Park Ave', 'Forest Ln'];
-            const street = streets[Math.floor(Math.random() * streets.length)];
-            const zip = Math.floor(10000 + Math.random() * 90000);
-            return `${streetNum} ${street}, ${city}, ${state} ${zip}`;
-        }
-
-        // Generate random date between two dates
-        function generateRandomDate(start, end) {
-            const startDate = new Date(start);
-            const endDate = new Date(end);
-            const randomDate = new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
-            return randomDate.toISOString().split('T')[0];
+            const streets = ['Main St', 'Oak Ave', 'Maple Dr', 'Pine Rd', 'Elm St'];
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            const zip = Math.floor(48000 + Math.random() * 2000);
+            return `${streetNum} ${streets[Math.floor(Math.random() * streets.length)]}, ${city}, MI ${zip}`;
         }
 
         // Generate Bay View history
         function generateBayViewHistory(firstName, lastName) {
-            const years = [10, 15, 20, 25, 30, 35, 40, 45, 50];
+            const years = [10, 15, 20, 25, 30, 35, 40];
             const year = years[Math.floor(Math.random() * years.length)];
-            const startYear = 2025 - year - Math.floor(Math.random() * 30);
-            
             const activities = [
                 'served on the Program Committee',
                 'was active in the Recreation Club',
                 'participated in the Music Festival',
                 'volunteered for the Children\'s Program',
-                'helped organize the annual regatta',
-                'was a member of the choir',
-                'taught in the education program',
-                'served on the Board of Trustees'
+                'helped organize the annual regatta'
             ];
-            
             const activity = activities[Math.floor(Math.random() * activities.length)];
-            
-            return `${firstName} was a ${year}-year summer resident who ${activity}. Their family has been part of Bay View since ${startYear} when they first purchased a cottage.`;
+            return `${firstName} was a ${year}-year summer resident who ${activity}. The family has been part of Bay View since ${2025 - year - Math.floor(Math.random() * 30)}.`;
         }
 
         // Fill form with random data
         document.getElementById('fillRandom').addEventListener('click', function() {
-            // Generate names
             const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
             const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-            const middleName = middleNames[Math.floor(Math.random() * middleNames.length)];
-            const maidenName = Math.random() > 0.5 ? lastNames[Math.floor(Math.random() * lastNames.length)] : '';
-            
             const contactFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
             const contactLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
             
-            const city = cities[Math.floor(Math.random() * cities.length)];
-            const state = states[Math.floor(Math.random() * states.length)];
-            
-            // Fill form fields
             document.getElementById('submissionId').value = generateSubmissionId();
             document.getElementById('submissionDate').value = new Date().toISOString().split('T')[0];
             document.getElementById('applicationType').selectedIndex = Math.floor(Math.random() * 2);
@@ -437,64 +333,40 @@
             document.getElementById('contactName').value = `${contactFirstName} ${contactLastName}`;
             document.getElementById('contactPhone').value = generatePhone();
             document.getElementById('contactEmail').value = generateEmail(contactFirstName, contactLastName);
-            document.getElementById('contactAddress').value = generateAddress(city, state);
-            document.getElementById('bayViewAddress').value = `${Math.floor(1 + Math.random() * 200)} ${['Sunset Ave', 'Lakeside Dr', 'Cottage Row', 'Bay View Ave'][Math.floor(Math.random() * 4)]}, Bay View, MI 49770`;
+            document.getElementById('contactAddress').value = generateAddress();
             
-            document.getElementById('firstName').value = firstName;
-            document.getElementById('middleName').value = middleName;
-            document.getElementById('lastName').value = lastName;
-            document.getElementById('maidenName').value = maidenName;
-            
-            const birthYear = 1920 + Math.floor(Math.random() * 80);
-            const deathYear = Math.max(birthYear + 20, 2020 + Math.floor(Math.random() * 6));
-            
-            document.getElementById('dateOfBirth').value = `${birthYear}-${String(Math.floor(1 + Math.random() * 12)).padStart(2, '0')}-${String(Math.floor(1 + Math.random() * 28)).padStart(2, '0')}`;
-            document.getElementById('dateOfDeath').value = `${deathYear}-${String(Math.floor(1 + Math.random() * 12)).padStart(2, '0')}-${String(Math.floor(1 + Math.random() * 28)).padStart(2, '0')}`;
-            document.getElementById('placeOfBirth').value = `${cities[Math.floor(Math.random() * cities.length)]}, ${states[Math.floor(Math.random() * states.length)]}`;
-            
-            document.getElementById('motherName').value = `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
-            document.getElementById('fatherName').value = `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
-            
-            document.getElementById('numberOfCremains').value = 1;
-            
-            const memberStatus = Math.random();
-            if (memberStatus < 0.4) {
-                document.getElementById('bayViewMember').value = 'Yes';
-                document.getElementById('memberId').value = `BV-${Math.floor(1000 + Math.random() * 9000)}`;
-                document.getElementById('memberName').value = '';
-                document.getElementById('memberRelationship').value = '';
-            } else if (memberStatus < 0.7) {
-                document.getElementById('bayViewMember').value = 'Relative of Member';
-                document.getElementById('memberId').value = '';
-                document.getElementById('memberName').value = `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastName}`;
-                document.getElementById('memberRelationship').value = ['Parent', 'Sibling', 'Child', 'Spouse', 'Grandparent'][Math.floor(Math.random() * 5)];
-            } else {
-                document.getElementById('bayViewMember').value = 'No';
-                document.getElementById('memberId').value = '';
-                document.getElementById('memberName').value = '';
-                document.getElementById('memberRelationship').value = '';
-            }
-            
-            document.getElementById('bayViewHistory').value = generateBayViewHistory(firstName, lastName);
+            document.getElementById('deceasedName').value = `${firstName} ${lastName}`;
             
             // Service date in the future
             const futureDate = new Date();
             futureDate.setDate(futureDate.getDate() + Math.floor(5 + Math.random() * 30));
             document.getElementById('serviceDate').value = futureDate.toISOString().split('T')[0];
             
-            document.getElementById('preferredTime').selectedIndex = Math.floor(Math.random() * 3);
             document.getElementById('celebrantRequested').selectedIndex = Math.floor(Math.random() * 3);
             
-            const fees = [400, 600, 800, 1000, 1500];
+            const isMember = Math.random() > 0.3;
+            document.getElementById('bayViewMember').value = isMember ? 'Yes' : 'No';
+            
+            if (!isMember && Math.random() > 0.5) {
+                document.getElementById('memberName').value = `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastName}`;
+                document.getElementById('memberRelationship').value = ['Parent', 'Sibling', 'Child', 'Spouse'][Math.floor(Math.random() * 4)];
+            } else {
+                document.getElementById('memberName').value = '';
+                document.getElementById('memberRelationship').value = '';
+            }
+            
+            document.getElementById('bayViewHistory').value = generateBayViewHistory(firstName, lastName);
+            
+            const fees = [400, 600, 800, 1000];
             document.getElementById('feeAmount').value = fees[Math.floor(Math.random() * fees.length)];
             
             if (document.getElementById('applicationType').value === 'Prepayment') {
-                const prepaymentNames = [];
                 const numNames = Math.floor(1 + Math.random() * 3);
+                const names = [];
                 for (let i = 0; i < numNames; i++) {
-                    prepaymentNames.push(`${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`);
+                    names.push(`${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`);
                 }
-                document.getElementById('prepaymentNames').value = prepaymentNames.join('\n');
+                document.getElementById('prepaymentNames').value = names.join('\n');
             } else {
                 document.getElementById('prepaymentNames').value = '';
             }
@@ -519,10 +391,10 @@
             for (let [key, value] of formData.entries()) {
                 if (value !== '') {
                     // Convert numeric fields to numbers
-                    if (key === 'Fee Amount' || key === 'Number of Cremains') {
+                    if (key === 'Fee Amount') {
                         properties[key] = parseFloat(value);
                     } else if (key === 'Policy Agreement') {
-                        // Handle checkbox - it will only be in FormData if checked
+                        // Checkbox is only in FormData if checked
                         properties[key] = '__YES__';
                     } else {
                         properties[key] = value;
@@ -530,7 +402,7 @@
                 }
             }
             
-            // Handle checkbox
+            // Handle unchecked checkbox
             if (!document.getElementById('policyAgreement').checked) {
                 delete properties['Policy Agreement'];
             }
@@ -581,10 +453,8 @@
             }
         });
 
-        // Set today's date for submission date
+        // Set initial values
         document.getElementById('submissionDate').value = new Date().toISOString().split('T')[0];
-        
-        // Generate initial submission ID
         document.getElementById('submissionId').value = generateSubmissionId();
     </script>
 </body>
